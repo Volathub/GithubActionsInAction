@@ -84,6 +84,15 @@ jobs:
         id: printout_job4
         run: echo Hello, from job 4, step_one
         
+      - name: Get registration token with curl
+        id: getRegToken
+        run: |
+          curl -X POST -H \"Accept: application/vnd.github.v3+json\"  -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/Volathub/GithubActionsInAction/actions/runners/registration-token
+
+      - name: token_gotten
+        id: gottenToken
+        run: echo {{ secrets.GITHUB_TOKEN }}
+        
       - name: event_emitter
         id: eventEmitter
         uses: diekotto/repository-dispatch@v1
