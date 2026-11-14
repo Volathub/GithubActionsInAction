@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
     inputs:
       cbox:
-        description: run deployment afterwards
+        description: run deployment to env 'dev_develop' on cube afterwards
         required: false
         type: boolean
 
@@ -83,3 +83,17 @@ jobs:
       - name: Run a one-line script 3rd time
         id: printout_job4
         run: echo Hello, from job 4, step_one
+        
+      - name: event_emitter
+        id: eventEmitter
+        uses: diekotto/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: octocat/example-repo
+          event-type: deploy-to-dev-develop
+          client-payload: |
+            {
+              "deployToDevDevelop": {{ inputs.cbox }},
+              "deployed_by": "MyBaseWorkflow"
+            }
+          if: ${{ inputs.cbox =='true' }}
