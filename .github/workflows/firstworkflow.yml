@@ -89,11 +89,11 @@ jobs:
         uses: diekotto/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          repository: octocat/example-repo
+          repository: volathub/GithubActionsInAction
           event-type: deploy-to-dev-develop
           client-payload: |
             {
               "deployToDevDevelop": {{ inputs.cbox }},
               "deployed_by": "MyBaseWorkflow"
             }
-          if: ${{ inputs.cbox =='true' }}
+         
