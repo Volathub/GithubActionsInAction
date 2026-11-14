@@ -78,7 +78,7 @@ jobs:
 
   job_four:
     runs-on: ubuntu-latest
-    needs: [job_two, job_three]
+    needs: [build_job, job_three]
     steps: 
       - name: Run a one-line script 3rd time
         id: printout_job4
