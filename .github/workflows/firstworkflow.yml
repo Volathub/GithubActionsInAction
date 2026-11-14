@@ -91,14 +91,15 @@ jobs:
 
       - name: token_gotten
         id: gottenToken
-        run: echo {{ secrets.GITHUB_TOKEN }}
+        run: echo {{ secrets.GITHUB_TOKEN }} |
+          echo {{ token }}
         
       - name: event_emitter
         id: eventEmitter
         uses: diekotto/repository-dispatch@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          repository: Volathub/GithubActionsInAction
+          repository: volathub/GithubActionsInAction
           event-type: deploy-to-dev-develop
           client-payload: |
             {
