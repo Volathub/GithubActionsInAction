@@ -1,0 +1,12 @@
+name: secondworkflow
+on: 
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["MyBaseWorkflow"] #Its the name of an workflow
+    types:
+      - completed
+jobs:
+  firstjobhere:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "second workflow running"
