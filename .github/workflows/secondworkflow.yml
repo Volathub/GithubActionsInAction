@@ -2,11 +2,11 @@ name: secondworkflow
 on: 
   workflow_dispatch:
   workflow_run:
-    workflows: ["Build and Push Image to ECR"] #Its the name of an workflow
+    workflows: ["MyBaseWorkflow"] #Its the name of an workflow
     types:
       - completed
 jobs:
   firstjobhere:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "second workflow"
+      - run: echo "second workflow running"
