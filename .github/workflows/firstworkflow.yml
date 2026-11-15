@@ -105,7 +105,7 @@ jobs:
         id: eventEmitter
         uses: diekotto/repository-dispatch@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           repository: volathub/GithubActionsInActionThi
           event-type: deploy-to-dev-develop
           client-payload: |
