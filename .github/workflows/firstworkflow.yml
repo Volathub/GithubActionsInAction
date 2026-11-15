@@ -98,6 +98,7 @@ jobs:
         env:
           a: "abc"
         id: setVaria
-        run: echo ${{ env.a }}          
+        run: echo ${{ env.a }} | 
+          echo "Hello dies ist der val von a  ${{ env.a }}"
          
      
