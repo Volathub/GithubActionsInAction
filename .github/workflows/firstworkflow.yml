@@ -98,7 +98,7 @@ jobs:
         env:
           a: "abc"
         id: setVaria
-        run: echo "Hello this is the val of a: $a"
+        run: echo "Hello this is the val of a: ${{ a }}"
           
          
       - name: event_emitter
