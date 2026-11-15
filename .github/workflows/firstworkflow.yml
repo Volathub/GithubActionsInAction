@@ -92,10 +92,10 @@ jobs:
       - name: token_gotten
         id: gottenToken
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PAT_TOKEN : ${{ secrets.PAT_TOKEN }}
-        run: echo ${{ env.GITHUB_TOKEN }} |
-          echo  ${{ env.PAT_TOKEN }}
+        run: echo "abcd ${{ env.GH_TOKEN }}" 
+          
       
       - name: set_variable 
         env:
