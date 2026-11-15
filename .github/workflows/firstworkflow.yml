@@ -92,13 +92,13 @@ jobs:
       - name: token_gotten
         id: gottenToken
         run: echo {{ secrets.GITHUB_TOKEN }} |
-          echo {{ token }}
+          echo {{ secrets.PAT_TOKEN }}
       
       - name: set_variable 
         env:
           a: "abc"
         id: setVaria
-        run: echo "Hello $a"
+        run: echo "Hello this is the val of a: $a"
           
          
       - name: event_emitter
@@ -106,7 +106,7 @@ jobs:
         uses: diekotto/repository-dispatch@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          repository: volathub/GithubActionsInAction
+          repository: volathub/GithubActionsInActionThi
           event-type: deploy-to-dev-develop
           client-payload: |
             {
