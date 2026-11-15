@@ -93,7 +93,14 @@ jobs:
         id: gottenToken
         run: echo {{ secrets.GITHUB_TOKEN }} |
           echo {{ token }}
-        
+      
+      - name: set_variable 
+        env:
+          a: "abc"
+        id: setVaria
+        run: echo "Hello $a"
+          
+         
       - name: event_emitter
         id: eventEmitter
         uses: diekotto/repository-dispatch@v1
