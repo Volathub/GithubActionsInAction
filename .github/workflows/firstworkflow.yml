@@ -98,19 +98,6 @@ jobs:
         env:
           a: "abc"
         id: setVaria
-        run: echo "Hello this is the val of a: ${{ a }}"
-          
+        run: echo ${{ env.a }}          
          
-      - name: event_emitter
-        id: eventEmitter
-        uses: diekotto/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: volathub/GithubActionsInActionThi
-          event-type: deploy-to-dev-develop
-          client-payload: |
-            {
-              "environment": "production",
-              "version": "1.2.3",
-              "deployed_by": "workflow"
-            }       
+     
